@@ -7,6 +7,14 @@ import lombok.Getter;
 @AllArgsConstructor
 public class CurrencyDto {
     private Long id;
+
     private String code;
+
     private String currency;
+
+    private double buying;
+
+    private double selling;
+
 }
+

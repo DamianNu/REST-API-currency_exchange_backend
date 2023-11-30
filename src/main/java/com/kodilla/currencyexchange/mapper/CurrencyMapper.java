@@ -12,7 +12,9 @@ public class CurrencyMapper {
         return new Currency(
                 currencyDto.getId(),
                 currencyDto.getCode(),
-                currencyDto.getCurrency()
+                currencyDto.getCurrency(),
+                currencyDto.getBuying(),
+                currencyDto.getSelling()
         );
     }
 
@@ -20,7 +22,9 @@ public class CurrencyMapper {
         return new CurrencyDto(
                 currency.getId(),
                 currency.getCode(),
-                currency.getCurrency()
+                currency.getCurrency(),
+                currency.getBuying(),
+                currency.getSelling()
         );
     }
 

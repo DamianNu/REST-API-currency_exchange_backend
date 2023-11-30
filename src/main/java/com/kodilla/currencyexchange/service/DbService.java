@@ -1,12 +1,12 @@
 package com.kodilla.currencyexchange.service;
 
+import com.kodilla.currencyexchange.controller.CurrencyNotFoundException;
 import com.kodilla.currencyexchange.domain.Currency;
 import com.kodilla.currencyexchange.repository.CurrencyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,12 +17,15 @@ public class DbService {
         return repository.findAll();
     }
 
-    public Optional<Currency> getCurrency(final Long currencyId) {
-        return repository.findById(currencyId);
+    public Currency getCurrency(final Long currencyId) throws CurrencyNotFoundException {
+        return repository.findById(currencyId).orElseThrow(CurrencyNotFoundException::new);
     }
 
     public Currency saveCurrency(final Currency currency) {
         return repository.save(currency);
     }
 
+    public void deleteCurrency(final Long currencyId) {
+        repository.deleteById(currencyId);
+    }
 }
