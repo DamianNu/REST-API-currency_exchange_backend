@@ -15,5 +15,6 @@ public interface CurrencyRepository extends CrudRepository<Currency, Long> {
     Currency save(Currency currency);
     @Override
     Optional<Currency> findById(Long id);
+    Optional<Currency> findByCode(String code);
 
 }

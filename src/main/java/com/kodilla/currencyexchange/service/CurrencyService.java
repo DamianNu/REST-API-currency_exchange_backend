@@ -1,7 +1,6 @@
 package com.kodilla.currencyexchange.service;
 
 import com.kodilla.currencyexchange.domain.Currency;
-import com.kodilla.currencyexchange.domain.CurrencyDto;
 import com.kodilla.currencyexchange.webclient.currency.CurrencyClient;
 import com.kodilla.currencyexchange.webclient.currency.dto.CurDto;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CurrencyService {
     private final CurrencyClient currencyClient;
-    private final DbService dbService;
+    private final DbServiceCurrency dbService;
 
     public void updateCurrency() {
         List<String> codes = new ArrayList<>();
@@ -33,8 +32,22 @@ public class CurrencyService {
         for (int i = 0; i < codes.size(); i++) {
             dbService.deleteCurrency(i + 1l);
             CurDto cur = currencyClient.getCurrencyForCode(codes.get(i));
-            Currency currency = new Currency(i + 1l, codes.get(i), cur.getCurrency(), cur.getRates().get(0).getMid()*0.98,cur.getRates().get(0).getMid()*1.02);
+            Currency currency = new Currency(
+                    i + 1l,
+                    codes.get(i),
+                    cur.getCurrency(),
+                    cur.getRates().get(0).getMid(),
+                    roundToDecimal(cur.getRates().get(0).getMid() * 0.995, 4),
+                    roundToDecimal(cur.getRates().get(0).getMid() * 1.005, 4)
+            );
             dbService.saveCurrency(currency);
         }
     }
+
+    public static double roundToDecimal(double num, int dec) {
+        int multi = (int) Math.pow(10, dec);
+        int temp = (int) Math.round(num * multi);
+        return (double) temp / multi;
+    }
+
 }

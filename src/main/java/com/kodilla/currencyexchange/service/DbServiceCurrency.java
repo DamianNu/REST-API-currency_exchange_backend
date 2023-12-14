@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class DbService {
+public class DbServiceCurrency {
     private final CurrencyRepository repository;
 
     public List<Currency> getAllCurrency() {
@@ -19,6 +19,10 @@ public class DbService {
 
     public Currency getCurrency(final Long currencyId) throws CurrencyNotFoundException {
         return repository.findById(currencyId).orElseThrow(CurrencyNotFoundException::new);
+    }
+
+    public Currency getCurrencyByCode(final String currencyCode) throws CurrencyNotFoundException {
+        return repository.findByCode(currencyCode).orElseThrow(CurrencyNotFoundException::new);
     }
 
     public Currency saveCurrency(final Currency currency) {

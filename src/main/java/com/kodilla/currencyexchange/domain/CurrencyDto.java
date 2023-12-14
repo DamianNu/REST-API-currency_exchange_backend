@@ -12,6 +12,8 @@ public class CurrencyDto {
 
     private String currency;
 
+    private double mid;
+
     private double buying;
 
     private double selling;

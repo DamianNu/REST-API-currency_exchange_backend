@@ -1,6 +1,5 @@
 package com.kodilla.currencyexchange.webclient.currency;
 
-import com.kodilla.currencyexchange.domain.CurrencyDto;
 import com.kodilla.currencyexchange.webclient.currency.dto.CurDto;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

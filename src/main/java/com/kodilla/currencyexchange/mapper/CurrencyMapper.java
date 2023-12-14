@@ -13,6 +13,7 @@ public class CurrencyMapper {
                 currencyDto.getId(),
                 currencyDto.getCode(),
                 currencyDto.getCurrency(),
+                currencyDto.getMid(),
                 currencyDto.getBuying(),
                 currencyDto.getSelling()
         );
@@ -23,6 +24,7 @@ public class CurrencyMapper {
                 currency.getId(),
                 currency.getCode(),
                 currency.getCurrency(),
+                currency.getMid(),
                 currency.getBuying(),
                 currency.getSelling()
         );
