@@ -11,7 +11,7 @@ public class CurrencyUpdateSheduler {
 
     private final CurrencyService service;
 
-    @Scheduled(fixedDelay = 300000)
+    @Scheduled(fixedDelay = 3000000)
     public void updateCurrency() {
         service.updateCurrency();
     }
