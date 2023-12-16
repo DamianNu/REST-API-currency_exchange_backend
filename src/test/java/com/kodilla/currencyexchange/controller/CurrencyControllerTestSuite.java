@@ -150,6 +150,4 @@ class CurrencyControllerTestSuite {
         assertEquals(4.4, curDto.getBuying());
         assertEquals(4.6, curDto.getSelling());
     }
-
-
 }
