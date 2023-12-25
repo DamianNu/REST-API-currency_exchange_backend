@@ -13,7 +13,8 @@ public class UserMapper {
                 user.getId(),
                 user.getName(),
                 user.getEmail(),
-                user.getPassword()
+                user.getPassword(),
+                user.getDate()
         );
     }
 
@@ -29,7 +30,8 @@ public class UserMapper {
                 userValid.getId(),
                 userValid.getName(),
                 userValid.getEmail(),
-                userValid.getPassword()
+                userValid.getPassword(),
+                userValid.getDate()
         );
     }
 

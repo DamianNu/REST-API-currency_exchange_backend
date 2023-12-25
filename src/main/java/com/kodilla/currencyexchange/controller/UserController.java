@@ -8,7 +8,6 @@ import com.kodilla.currencyexchange.service.DbServiceUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +37,12 @@ public class UserController {
             userRepository.save(user);
             return ResponseEntity.ok().build();
         }
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{userId}")
+    public ResponseEntity<Void> deleteUserByName(@PathVariable Long userId) {
+        serviceUser.deleteUser(userId);
+        return ResponseEntity.ok().build();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{userName}")

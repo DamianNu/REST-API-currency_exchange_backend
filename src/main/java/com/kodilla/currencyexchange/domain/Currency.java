@@ -10,18 +10,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
-@Entity(name = "currency")
+@Entity(name = "CURRENCIES")
 public class Currency {
     private Long id;
-
     private String code;
-
     private String currency;
-
     private double mid;
-
     private double buying;
-
     private double selling;
 
     @Id
