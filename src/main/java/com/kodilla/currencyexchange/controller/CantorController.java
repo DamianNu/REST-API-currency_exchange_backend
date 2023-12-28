@@ -1,9 +1,10 @@
 package com.kodilla.currencyexchange.controller;
 
-import com.kodilla.currencyexchange.domain.Cantor;
-import com.kodilla.currencyexchange.domain.CantorDto;
+import com.kodilla.currencyexchange.exception.CantorNotFoundException;
+import com.kodilla.currencyexchange.domain.cantor.Cantor;
+import com.kodilla.currencyexchange.domain.cantor.CantorDto;
 import com.kodilla.currencyexchange.mapper.CantorMapper;
-import com.kodilla.currencyexchange.service.DbServiceCantor;
+import com.kodilla.currencyexchange.service.db.DbServiceCantor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +24,19 @@ public class CantorController {
         return ResponseEntity.ok(mapper.mapToCantorDtoList(cantorList));
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{cantorId}")
+    @RequestMapping(method = RequestMethod.GET, value = "/id/{cantorId}")
     public ResponseEntity<CantorDto> getCantor(@PathVariable Long cantorId) throws CantorNotFoundException {
         return ResponseEntity.ok(mapper.mapToCantorDto(service.getCantor(cantorId)));
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/name/{name}")
+    public ResponseEntity<CantorDto> getCantorByName(@PathVariable String name) throws CantorNotFoundException {
+        return ResponseEntity.ok(mapper.mapToCantorDto(service.getCantorByName(name)));
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/city/{city}")
+    public ResponseEntity<List<CantorDto>> getCantor(@PathVariable String city) throws CantorNotFoundException {
+        return ResponseEntity.ok(mapper.mapToCantorDtoList(service.getCantorByCity(city)));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{cantorId}")
@@ -47,15 +58,4 @@ public class CantorController {
         service.saveCantor(cantor);
         return ResponseEntity.ok().build();
     }
-
-//    @RequestMapping(method = RequestMethod.GET, value = "/code/{currencyCode}")
-//    public ResponseEntity<CurrencyDto> getCurrencyByCode(@PathVariable String currencyCode) throws CurrencyNotFoundException {
-//        return ResponseEntity.ok(mapper.mapToCurrencyDto(service.getCurrencyByCode(currencyCode)));
-//    }
-
-//    @GetMapping("/up")
-//    public ResponseEntity<Void> upCurrency() {
-//        currencyService.updateCurrency();
-//        return ResponseEntity.ok().build();
-//    }
 }

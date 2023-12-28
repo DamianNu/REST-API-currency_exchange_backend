@@ -1,6 +1,6 @@
 package com.kodilla.currencyexchange.repository;
 
-import com.kodilla.currencyexchange.domain.Cantor;
+import com.kodilla.currencyexchange.domain.cantor.Cantor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +17,8 @@ public interface CantorRepository extends CrudRepository<Cantor, Long> {
 
     @Override
     Optional<Cantor> findById(Long id);
+
+    Optional<Cantor> findByName(String name);
+
+    List<Cantor> findAllByCity(String city);
 }

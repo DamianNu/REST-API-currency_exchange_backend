@@ -1,7 +1,7 @@
-package com.kodilla.currencyexchange.service;
+package com.kodilla.currencyexchange.service.db;
 
-import com.kodilla.currencyexchange.controller.CurrencyNotFoundException;
-import com.kodilla.currencyexchange.domain.Currency;
+import com.kodilla.currencyexchange.exception.CurrencyNotFoundException;
+import com.kodilla.currencyexchange.domain.currency.Currency;
 import com.kodilla.currencyexchange.repository.CurrencyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

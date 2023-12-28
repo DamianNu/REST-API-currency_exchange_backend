@@ -1,7 +1,7 @@
-package com.kodilla.currencyexchange.service;
+package com.kodilla.currencyexchange.service.db;
 
-import com.kodilla.currencyexchange.controller.CantorNotFoundException;
-import com.kodilla.currencyexchange.domain.Cantor;
+import com.kodilla.currencyexchange.exception.CantorNotFoundException;
+import com.kodilla.currencyexchange.domain.cantor.Cantor;
 import com.kodilla.currencyexchange.repository.CantorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,9 +21,13 @@ public class DbServiceCantor {
         return repository.findById(cantorId).orElseThrow(CantorNotFoundException::new);
     }
 
-//    public Cantor getCantorByCode(final String currencyCode) throws CurrencyNotFoundException {
-//        return repository.findByCode(currencyCode).orElseThrow(CurrencyNotFoundException::new);
-//    }
+    public Cantor getCantorByName(final String name) throws CantorNotFoundException {
+        return repository.findByName(name).orElseThrow(CantorNotFoundException::new);
+    }
+
+    public List<Cantor> getCantorByCity(final String city) {
+        return repository.findAllByCity(city);
+    }
 
     public Cantor saveCantor(final Cantor cantor) {
         return repository.save(cantor);

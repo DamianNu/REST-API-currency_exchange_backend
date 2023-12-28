@@ -1,6 +1,6 @@
 package com.kodilla.currencyexchange.repository;
 
-import com.kodilla.currencyexchange.domain.Currency;
+import com.kodilla.currencyexchange.domain.currency.Currency;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,5 +19,4 @@ public interface CurrencyRepository extends CrudRepository<Currency, Long> {
     Optional<Currency> findById(Long id);
 
     Optional<Currency> findByCode(String code);
-
 }

@@ -1,9 +1,10 @@
 package com.kodilla.currencyexchange.controller;
 
-import com.kodilla.currencyexchange.domain.Currency;
+import com.kodilla.currencyexchange.exception.CurrencyNotFoundException;
+import com.kodilla.currencyexchange.domain.currency.Currency;
 import com.kodilla.currencyexchange.request.Amount;
 import com.kodilla.currencyexchange.request.CalculateAmount;
-import com.kodilla.currencyexchange.service.DbServiceCurrency;
+import com.kodilla.currencyexchange.service.db.DbServiceCurrency;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

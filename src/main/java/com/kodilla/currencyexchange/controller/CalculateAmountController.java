@@ -1,10 +1,11 @@
 package com.kodilla.currencyexchange.controller;
 
-import com.kodilla.currencyexchange.domain.Currency;
+import com.kodilla.currencyexchange.exception.CurrencyNotFoundException;
+import com.kodilla.currencyexchange.domain.currency.Currency;
 import com.kodilla.currencyexchange.request.Amount;
 import com.kodilla.currencyexchange.request.CalculateAmount;
 import com.kodilla.currencyexchange.service.AmountService;
-import com.kodilla.currencyexchange.service.DbServiceCurrency;
+import com.kodilla.currencyexchange.service.db.DbServiceCurrency;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,10 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/calculate-amount")
 @RequiredArgsConstructor
 public class CalculateAmountController {
-
     private final DbServiceCurrency service;
     private final AmountService amountService;
-
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Amount> calculateAmount(@RequestBody CalculateAmount calculateAmount) throws CurrencyNotFoundException {

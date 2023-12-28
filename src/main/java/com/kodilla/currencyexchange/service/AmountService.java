@@ -1,6 +1,6 @@
 package com.kodilla.currencyexchange.service;
 
-import com.kodilla.currencyexchange.domain.Currency;
+import com.kodilla.currencyexchange.domain.currency.Currency;
 import com.kodilla.currencyexchange.request.Amount;
 import org.springframework.stereotype.Service;
 

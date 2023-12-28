@@ -1,7 +1,7 @@
 package com.kodilla.currencyexchange.mapper;
 
-import com.kodilla.currencyexchange.domain.Currency;
-import com.kodilla.currencyexchange.domain.CurrencyDto;
+import com.kodilla.currencyexchange.domain.currency.Currency;
+import com.kodilla.currencyexchange.domain.currency.CurrencyDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

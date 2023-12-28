@@ -1,4 +1,4 @@
-package com.kodilla.currencyexchange.domain;
+package com.kodilla.currencyexchange.domain.cantor;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

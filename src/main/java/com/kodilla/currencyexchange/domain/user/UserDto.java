@@ -1,4 +1,4 @@
-package com.kodilla.currencyexchange.domain;
+package com.kodilla.currencyexchange.domain.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,14 +7,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
-public class UserValid {
+public class UserDto {
     private Long id;
     private String name;
     private String email;
     private String password;
     private LocalDateTime date;
 
-    public UserValid(String name, String email) {
+    public UserDto(String name, String email) {
         this.name = name;
         this.email = email;
     }

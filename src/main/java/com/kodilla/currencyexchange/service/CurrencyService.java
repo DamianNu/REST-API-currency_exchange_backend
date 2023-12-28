@@ -1,6 +1,7 @@
 package com.kodilla.currencyexchange.service;
 
-import com.kodilla.currencyexchange.domain.Currency;
+import com.kodilla.currencyexchange.domain.currency.Currency;
+import com.kodilla.currencyexchange.service.db.DbServiceCurrency;
 import com.kodilla.currencyexchange.webclient.currency.CurrencyClient;
 import com.kodilla.currencyexchange.webclient.currency.dto.CurDto;
 import lombok.RequiredArgsConstructor;
@@ -49,5 +50,4 @@ public class CurrencyService {
         int temp = (int) Math.round(num * multi);
         return (double) temp / multi;
     }
-
 }

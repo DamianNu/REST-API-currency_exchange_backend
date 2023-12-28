@@ -1,7 +1,7 @@
 package com.kodilla.currencyexchange.mapper;
 
-import com.kodilla.currencyexchange.domain.Cantor;
-import com.kodilla.currencyexchange.domain.CantorDto;
+import com.kodilla.currencyexchange.domain.cantor.Cantor;
+import com.kodilla.currencyexchange.domain.cantor.CantorDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

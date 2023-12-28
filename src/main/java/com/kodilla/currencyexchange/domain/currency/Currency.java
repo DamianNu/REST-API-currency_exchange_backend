@@ -1,4 +1,4 @@
-package com.kodilla.currencyexchange.domain;
+package com.kodilla.currencyexchange.domain.currency;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -13,7 +13,5 @@ public class CurrencyClient {
     public CurDto getCurrencyForCode(String code) {
         return restTemplate.getForObject(CURRENCY_URL + code + FORMAT_JSON,
                 CurDto.class);
-
-
     }
 }

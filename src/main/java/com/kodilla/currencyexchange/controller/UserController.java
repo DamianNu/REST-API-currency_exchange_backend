@@ -1,10 +1,11 @@
 package com.kodilla.currencyexchange.controller;
 
-import com.kodilla.currencyexchange.domain.User;
-import com.kodilla.currencyexchange.domain.UserValid;
+import com.kodilla.currencyexchange.exception.UserNotFoundException;
+import com.kodilla.currencyexchange.domain.user.User;
+import com.kodilla.currencyexchange.domain.user.UserDto;
 import com.kodilla.currencyexchange.mapper.UserMapper;
 import com.kodilla.currencyexchange.repository.UserRepository;
-import com.kodilla.currencyexchange.service.DbServiceUser;
+import com.kodilla.currencyexchange.service.db.DbServiceUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,6 @@ import java.util.List;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -39,25 +39,25 @@ public class UserController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/{userId}")
-    public ResponseEntity<Void> deleteUserByName(@PathVariable Long userId) {
+    @RequestMapping(method = RequestMethod.DELETE, value = "/id/{userId}")
+    public ResponseEntity<Void> deleteUserById(@PathVariable Long userId) {
         serviceUser.deleteUser(userId);
         return ResponseEntity.ok().build();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{userName}")
-    public ResponseEntity<UserValid> getUserByName(@PathVariable String userName) throws UserNotFoundException {
+    @RequestMapping(method = RequestMethod.GET, value = "/name/{userName}")
+    public ResponseEntity<UserDto> getUserByName(@PathVariable String userName) throws UserNotFoundException {
         return ResponseEntity.ok(userMapper.mapToUserValid(serviceUser.getUserByName(userName)));
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<UserValid>> getAllUsers() {
+    public ResponseEntity<List<UserDto>> getAllUsers() {
         List<User> userValidList = serviceUser.getAllUsers();
         return ResponseEntity.ok(userMapper.mapToUserValidList(userValidList));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/email/{userEmail}")
-    public ResponseEntity<UserValid> getUserByEmail(@PathVariable String userEmail) throws UserNotFoundException {
+    public ResponseEntity<UserDto> getUserByEmail(@PathVariable String userEmail) throws UserNotFoundException {
         return ResponseEntity.ok(userMapper.mapToUserValid(serviceUser.getUserByEmail(userEmail)));
     }
 }

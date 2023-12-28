@@ -1,6 +1,6 @@
 package com.kodilla.currencyexchange.repository;
 
-import com.kodilla.currencyexchange.domain.User;
+import com.kodilla.currencyexchange.domain.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

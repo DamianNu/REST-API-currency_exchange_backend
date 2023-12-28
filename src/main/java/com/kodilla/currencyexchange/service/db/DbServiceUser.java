@@ -1,7 +1,7 @@
-package com.kodilla.currencyexchange.service;
+package com.kodilla.currencyexchange.service.db;
 
-import com.kodilla.currencyexchange.controller.UserNotFoundException;
-import com.kodilla.currencyexchange.domain.User;
+import com.kodilla.currencyexchange.exception.UserNotFoundException;
+import com.kodilla.currencyexchange.domain.user.User;
 import com.kodilla.currencyexchange.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,6 +32,4 @@ public class DbServiceUser {
     public void deleteUser(final Long userId) {
         userRepository.deleteById(userId);
     }
-
-
 }
